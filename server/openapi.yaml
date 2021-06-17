@@ -1,0 +1,39 @@
+openapi: "3.0.2"
+info:
+  title: Welcome to PERN stack template!
+  version: "1.0"
+servers:
+  - url: "/api"
+
+
+paths:
+  /lifters:
+    get:
+      summary: returns ones who lift
+      description: |
+        a simple route that will hit the db and return some messages.
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items: 
+                 $ref: '#/components/schemas/Lifter'
+                 
+components:
+  schemas:
+   Lifter:
+      type: object
+      properties:
+        id:
+          type: integer
+        firstName: 
+          type: string
+        lastName :
+          type: string
+        isProMember:
+          type: boolean
+        
